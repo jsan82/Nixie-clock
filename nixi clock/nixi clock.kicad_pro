@@ -178,7 +178,12 @@
         }
       ],
       "track_widths": [
-        0.0
+        0.0,
+        0.1,
+        0.2,
+        0.4,
+        0.6,
+        1.0
       ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
@@ -667,6 +672,10 @@
     [
       "bee450d4-70d6-4734-901d-cd885f91fb1b",
       "Root"
+    ],
+    [
+      "b28aa3cd-54a0-475e-b450-e4b76632f9d4",
+      "nixies"
     ]
   ],
   "text_variables": {}
