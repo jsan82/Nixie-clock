@@ -1,0 +1,169 @@
+
+#include <WiFi.h>
+#include <SensorLib>
+
+uint8_t rst = 16;
+uint8_t d_clk = 17;
+uint8_t o_clk = 18;
+uint8_t nixi_en = 8;
+uint8_t nixi_data = 19;
+uint8_t rtc_int = 21;
+uint8_t rtc_scl = 47;
+uint8_t rtc_sda = 48;
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(115200);
+  Serial.println("Starting");
+  pinMode(rst, OUTPUT);
+  pinMode(d_clk, OUTPUT);
+  pinMode(o_clk, OUTPUT);
+  pinMode(nixi_en, OUTPUT);
+  pinMode(nixi_data, OUTPUT);
+  digitalWrite(rst,1);
+  digitalWrite(nixi_en, 0);
+	
+}
+
+
+void sendToRegister(uint8_t bit)
+{
+  if (bit == 1)
+  {
+    digitalWrite(nixi_data, 1);
+  } else {
+    digitalWrite(nixi_data, 0);
+  }
+
+  delay(1);
+  digitalWrite(d_clk, 1);
+  delay(1);
+  digitalWrite(o_clk,1);
+  delay(1);
+  digitalWrite(d_clk,0);
+  delay(1);
+  digitalWrite(o_clk,0);
+  delay(1);
+}
+
+void sendNumber(uint8_t number)
+{
+  switch(number)
+  {
+    case 0:
+      digitalWrite(nixi_en, 1);
+      sendToRegister(1);
+      sendToRegister(0);
+      sendToRegister(0);
+      sendToRegister(1);
+      digitalWrite(nixi_en, 0);
+      Serial.println("printing 0");
+      break;
+    case 1:
+      digitalWrite(nixi_en, 1);
+      sendToRegister(0);
+      sendToRegister(0);
+      sendToRegister(0);
+      sendToRegister(0);
+      digitalWrite(nixi_en, 0);
+      Serial.println("printing 1");
+      
+      break;
+    case 2:
+      digitalWrite(nixi_en, 1);
+      sendToRegister(1);
+      sendToRegister(0);
+      sendToRegister(0);
+      sendToRegister(0);
+      digitalWrite(nixi_en, 0);
+      Serial.println("printing 2");
+      break;
+    case 3:
+      digitalWrite(nixi_en, 1);
+      sendToRegister(0);
+      sendToRegister(1);
+      sendToRegister(0);
+      sendToRegister(0);
+      digitalWrite(nixi_en, 0);
+      Serial.println("printing 3");
+      break;
+    case 4:
+      digitalWrite(nixi_en, 1);
+      sendToRegister(1);
+      sendToRegister(1);
+      sendToRegister(0);
+      sendToRegister(0);
+      digitalWrite(nixi_en, 0);
+      Serial.println("printing 4");
+      break;
+    case 5:
+      digitalWrite(nixi_en, 1);
+      sendToRegister(0);
+      sendToRegister(0);
+      sendToRegister(1);
+      sendToRegister(0);
+      digitalWrite(nixi_en, 0);
+      Serial.println("printing 5");
+      break;
+    case 6:
+      digitalWrite(nixi_en, 1);
+      sendToRegister(1);
+      sendToRegister(0);
+      sendToRegister(1);
+      sendToRegister(0);
+      digitalWrite(nixi_en, 0);
+      Serial.println("printing 6");
+      break;
+    case 7:
+      digitalWrite(nixi_en, 1);
+      sendToRegister(0);
+      sendToRegister(1);
+      sendToRegister(1);
+      sendToRegister(0);
+      digitalWrite(nixi_en, 0);
+      Serial.println("printing 7");
+      break;
+    case 8:
+      digitalWrite(nixi_en, 1);
+      sendToRegister(1);
+      sendToRegister(1);
+      sendToRegister(1);
+      sendToRegister(0);
+      digitalWrite(nixi_en, 0);
+      Serial.println("printing 8");
+      break;
+    case 9:
+      digitalWrite(nixi_en, 1);
+      sendToRegister(0);
+      sendToRegister(0);
+      sendToRegister(0);
+      sendToRegister(1);
+      digitalWrite(nixi_en, 0);
+      Serial.println("printing 9");
+      break;           
+  }
+}
+
+
+
+void loop() {
+
+  // data = nixi_data = ds
+  // srclk = o_clk = stcp
+  // rclk = d_clk = shcp
+
+  //going through all numbers
+
+  for (int i = 0; i <= 9; i++)
+  {
+    sendNumber(i);
+    sendNumber(i);
+    sendNumber(i);
+    sendNumber(i);
+    delay(2000);
+  }
+
+
+  
+  
+}

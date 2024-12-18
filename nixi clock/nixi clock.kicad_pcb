@@ -1569,7 +1569,7 @@
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "J6"
-			(at 0 -2.33 360)
+			(at 0 -2.33 0)
 			(layer "F.SilkS")
 			(uuid "bd14209a-8d88-4846-b648-baa503844ade")
 			(effects
@@ -1580,7 +1580,7 @@
 			)
 		)
 		(property "Value" "Conn_01x02"
-			(at 0 4.87 360)
+			(at 0 4.87 0)
 			(layer "F.Fab")
 			(uuid "bbcb7a1d-ce30-4b7a-b9c5-b46acd0ca85e")
 			(effects
@@ -1836,7 +1836,7 @@
 		(descr "MAY BE USED WITH SOCKET: PL31-P")
 		(tags "MAY BE USED WITH SOCKET: PL31-P")
 		(property "Reference" "N2"
-			(at 20.955 -0.889 360)
+			(at 20.955 -0.889 0)
 			(layer "F.SilkS")
 			(uuid "4d3c358a-68d6-46c4-a167-7977f9fc0aab")
 			(effects
@@ -1847,7 +1847,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 0 12.7 360)
+			(at 0 12.7 0)
 			(layer "F.SilkS")
 			(uuid "649a63b2-e47a-41a4-8522-d1eef2ba17bc")
 			(effects
@@ -1858,7 +1858,7 @@
 			)
 		)
 		(property "Footprint" "nixies-us:nixies-us-IN-4-DSUB"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "24c85340-3e88-4ed1-8602-bd6889b600d8")
@@ -1870,7 +1870,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "2f71170c-a955-4cec-809e-51d8c2575de6")
@@ -1882,7 +1882,7 @@
 			)
 		)
 		(property "Description" "IN-4: large numeric topview nixie tube"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "b1ae2aad-c825-4b87-9bd4-908010477a60")
@@ -1964,7 +1964,7 @@
 			(uuid "5ab9d8e5-a5fb-4696-9a57-64ee76b86a23")
 		)
 		(fp_text user "TOP"
-			(at 0 -12.7 360)
+			(at 0 -12.7 0)
 			(layer "F.SilkS")
 			(uuid "e8ffafa8-3eaa-4a66-ac5d-1a8a9d4f4d3b")
 			(effects
@@ -2145,7 +2145,7 @@
 			)
 		)
 		(property "Value" "4k7"
-			(at 0 1.65 360)
+			(at 0 1.65 0)
 			(layer "F.Fab")
 			(uuid "1f9194d0-bba4-4993-8f92-a4a11749ceb8")
 			(effects
@@ -2300,7 +2300,7 @@
 			(uuid "07a37a04-603f-4523-8246-759d6b8b941f")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "644d149c-f209-4950-ae1a-4da4fd413746")
 			(effects
@@ -2347,7 +2347,7 @@
 		(descr "MAY BE USED WITH SOCKET: PL31-P")
 		(tags "MAY BE USED WITH SOCKET: PL31-P")
 		(property "Reference" "N4"
-			(at 20.955 -0.889 360)
+			(at 20.955 -0.889 0)
 			(layer "F.SilkS")
 			(uuid "760742f2-984e-44bd-90df-3f5cc2a057e7")
 			(effects
@@ -2358,7 +2358,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 0 12.7 360)
+			(at 0 12.7 0)
 			(layer "F.SilkS")
 			(uuid "ffdaf9b8-279f-4d0d-937a-cfaeb6dcdc53")
 			(effects
@@ -2369,7 +2369,7 @@
 			)
 		)
 		(property "Footprint" "nixies-us:nixies-us-IN-4-DSUB"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "52559c85-7d27-4190-b715-a68a5d5426ad")
@@ -2381,7 +2381,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "2f45bc48-48ec-4866-8df5-a8dc4f80fc90")
@@ -2393,7 +2393,7 @@
 			)
 		)
 		(property "Description" "IN-4: large numeric topview nixie tube"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "e689fe87-ab84-4718-9325-0827d30cef5c")
@@ -2475,7 +2475,7 @@
 			(uuid "ca3bf942-b113-4151-a7dd-9714432df7a6")
 		)
 		(fp_text user "TOP"
-			(at 0 -12.7 360)
+			(at 0 -12.7 0)
 			(layer "F.SilkS")
 			(uuid "55dfc6e9-5d57-4710-99fd-d4aef9d3d366")
 			(effects
@@ -2645,7 +2645,7 @@
 		(descr "Through hole straight pin header, 1x04, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x04 2.54mm single row")
 		(property "Reference" "J3"
-			(at 0 -2.33 360)
+			(at 0 -2.33 0)
 			(layer "F.SilkS")
 			(uuid "3bd2cf64-668c-49d6-9446-7c468163221d")
 			(effects
@@ -2656,7 +2656,7 @@
 			)
 		)
 		(property "Value" "Conn_01x04"
-			(at 0 9.95 360)
+			(at 0 9.95 0)
 			(layer "F.Fab")
 			(uuid "93191de2-7862-4daf-88aa-b609fd310c3b")
 			(effects
@@ -2934,7 +2934,7 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "capacitor handsolder")
 		(property "Reference" "C6"
-			(at 0 -1.68 360)
+			(at 0 -1.68 0)
 			(layer "F.SilkS")
 			(uuid "422421e9-1503-4557-9adf-b5fe1d683706")
 			(effects
@@ -2945,7 +2945,7 @@
 			)
 		)
 		(property "Value" "10u"
-			(at 0 1.68 360)
+			(at 0 1.68 0)
 			(layer "F.Fab")
 			(uuid "5ffd7263-f2b7-4377-89aa-eb9ef937127c")
 			(effects
@@ -3100,7 +3100,7 @@
 			(uuid "f9c96d86-6642-422c-888d-6f92d346eec9")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "a8e62140-a210-4158-b72e-ffe0d85db8df")
 			(effects
@@ -4052,7 +4052,7 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "capacitor handsolder")
 		(property "Reference" "C10"
-			(at 0 -1.68 360)
+			(at 0 -1.68 0)
 			(layer "F.SilkS")
 			(uuid "e4ea29e0-6d14-4f93-ac34-fa1f908bf60f")
 			(effects
@@ -4063,7 +4063,7 @@
 			)
 		)
 		(property "Value" "10u"
-			(at 0 1.68 360)
+			(at 0 1.68 0)
 			(layer "F.Fab")
 			(uuid "8f05a4ba-4270-4b3d-9e67-c802a1fbf245")
 			(effects
@@ -4218,7 +4218,7 @@
 			(uuid "425df863-3bf3-4c71-a662-a8cb93492916")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "406e5979-503b-4e2f-ae32-1588d94e2c88")
 			(effects
@@ -5371,7 +5371,7 @@
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "J5"
-			(at 0 -2.33 360)
+			(at 0 -2.33 0)
 			(layer "F.SilkS")
 			(uuid "0f3b617e-37d6-4c93-a5c8-6e85a7cf0e24")
 			(effects
@@ -5382,7 +5382,7 @@
 			)
 		)
 		(property "Value" "Conn_01x02"
-			(at 0 4.87 360)
+			(at 0 4.87 0)
 			(layer "F.Fab")
 			(uuid "b937358f-a8f7-4573-9ff0-9f69b6a1523b")
 			(effects
@@ -5638,7 +5638,7 @@
 		(descr "Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=15.24mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0207 series Axial Horizontal pin pitch 15.24mm 0.25W = 1/4W length 6.3mm diameter 2.5mm")
 		(property "Reference" "R5"
-			(at 7.62 -2.37 360)
+			(at 7.62 -2.37 0)
 			(layer "F.SilkS")
 			(uuid "fe670bd2-3226-4dbc-b8e8-0a82ac1527dc")
 			(effects
@@ -5649,7 +5649,7 @@
 			)
 		)
 		(property "Value" "6k8"
-			(at 7.62 2.37 360)
+			(at 7.62 2.37 0)
 			(layer "F.Fab")
 			(uuid "3ad838c4-d03c-437d-ba2c-1ac2b4fcd2d5")
 			(effects
@@ -5864,7 +5864,7 @@
 			(uuid "ff237ff9-d08b-4df5-82b2-4fc82eacf108")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 7.62 0 360)
+			(at 7.62 0 0)
 			(layer "F.Fab")
 			(uuid "79a1b174-0f6b-4134-a53c-3edb96db1c3b")
 			(effects
@@ -6272,7 +6272,7 @@
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "J1"
-			(at 0 -2.33 360)
+			(at 0 -2.33 0)
 			(layer "F.SilkS")
 			(uuid "fc940a2d-efb4-46e6-bce6-1d1154b83055")
 			(effects
@@ -6283,7 +6283,7 @@
 			)
 		)
 		(property "Value" "Conn_01x02"
-			(at 0 4.87 360)
+			(at 0 4.87 0)
 			(layer "F.Fab")
 			(uuid "b882616c-6ff1-4f0a-9c25-82821a026670")
 			(effects
@@ -6550,7 +6550,7 @@
 			)
 		)
 		(property "Value" "4k7"
-			(at 0 1.65 360)
+			(at 0 1.65 0)
 			(layer "F.Fab")
 			(uuid "ce30d679-bd5c-4f36-8a6f-231c60c9437b")
 			(effects
@@ -6705,7 +6705,7 @@
 			(uuid "e521b34b-b239-42e6-8b68-6cddd7ddc807")
 		)
 		(fp_text user "${REFERENCE}"
-			(at -0.26 0.87 360)
+			(at -0.26 0.87 0)
 			(layer "F.Fab")
 			(uuid "6ea24bc6-ac47-4319-ad90-52c6b7a60512")
 			(effects
@@ -9337,7 +9337,7 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "capacitor handsolder")
 		(property "Reference" "C1"
-			(at 0.14 2.91 360)
+			(at 0.14 2.91 0)
 			(layer "F.SilkS")
 			(uuid "0b75a073-1981-4b00-986d-0428a6f67125")
 			(effects
@@ -9348,7 +9348,7 @@
 			)
 		)
 		(property "Value" "10u"
-			(at 0 1.68 360)
+			(at 0 1.68 0)
 			(layer "F.Fab")
 			(uuid "2da1f0aa-fd65-4f18-9e8f-521cbb7c062b")
 			(effects
@@ -9503,7 +9503,7 @@
 			(uuid "e01d0e3c-3add-473c-8653-a87c242018c0")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "e314b897-c5ae-48dd-bc0c-6df08774991b")
 			(effects
@@ -10292,7 +10292,7 @@
 		(descr "Through hole straight pin header, 1x04, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x04 2.54mm single row")
 		(property "Reference" "J4"
-			(at 0 -2.33 360)
+			(at 0 -2.33 0)
 			(layer "F.SilkS")
 			(uuid "a0e8353a-4606-49a2-aa2d-9a9dfb4eb6a1")
 			(effects
@@ -10303,7 +10303,7 @@
 			)
 		)
 		(property "Value" "Conn_01x04"
-			(at 0 9.95 360)
+			(at 0 9.95 0)
 			(layer "F.Fab")
 			(uuid "55445b2e-7ca0-45fd-a6a7-d5a5f260d44f")
 			(effects
@@ -10581,7 +10581,7 @@
 		(descr "ESP32-S3-WROOM-1U-N4-2")
 		(tags "Integrated Circuit")
 		(property "Reference" "IC1"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.SilkS")
 			(uuid "a2a798ed-9ea5-4f91-ad81-e10715075a48")
 			(effects
@@ -10592,7 +10592,7 @@
 			)
 		)
 		(property "Value" "ESP32-S3-WROOM-1U-N4"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "cf1ffde0-4b3f-4c3e-a26c-9f442eeda8ee")
@@ -10604,7 +10604,7 @@
 			)
 		)
 		(property "Footprint" "SamacSys_Parts:ESP32S3WROOM1UN4"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "3c1befef-0836-459b-96bf-74484c0309aa")
@@ -10616,7 +10616,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.espressif.com/sites/default/files/documentation/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "ba06f3d8-c713-4d71-b3ce-d016d4efc479")
@@ -10628,7 +10628,7 @@
 			)
 		)
 		(property "Description" "Multiprotocol Modules SMD Module, ESP32-S3, 4 MB SPI Flash, IPEX Antenna Connector"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "4e2c62f8-7732-4648-b66b-5eadff5ceeee")
@@ -10927,7 +10927,7 @@
 			(uuid "6d20a287-5541-4b85-b6ef-2b5746a4bf9d")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "38e0e254-2135-4470-b38e-199c51c98b51")
 			(effects
@@ -11397,7 +11397,7 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
 		(tags "capacitor handsolder")
 		(property "Reference" "C4"
-			(at 2.5775 0.1 360)
+			(at 2.5775 0.1 0)
 			(layer "F.SilkS")
 			(uuid "280d66ac-2fb5-44d2-a88e-f5f7fcfa8cc9")
 			(effects
@@ -12134,7 +12134,7 @@
 		(descr "MAY BE USED WITH SOCKET: PL31-P")
 		(tags "MAY BE USED WITH SOCKET: PL31-P")
 		(property "Reference" "N3"
-			(at 20.955 -0.889 360)
+			(at 20.955 -0.889 0)
 			(layer "F.SilkS")
 			(uuid "563fb53a-6db1-4f36-bca5-1b1ffd3873bc")
 			(effects
@@ -12145,7 +12145,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 0 12.7 360)
+			(at 0 12.7 0)
 			(layer "F.SilkS")
 			(uuid "ecc9eda8-3449-4b7a-a08f-34f88c31157e")
 			(effects
@@ -12156,7 +12156,7 @@
 			)
 		)
 		(property "Footprint" "nixies-us:nixies-us-IN-4-DSUB"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "a9c7a2ce-09d2-436e-a145-75835e7b494c")
@@ -12168,7 +12168,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "3fd27818-6c6e-494f-99f9-0429356088ff")
@@ -12180,7 +12180,7 @@
 			)
 		)
 		(property "Description" "IN-4: large numeric topview nixie tube"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "12caacfc-3b55-4568-8b57-a5b9edec5194")
@@ -12262,7 +12262,7 @@
 			(uuid "c12a04d0-774b-4999-b13c-b18da83e4eb1")
 		)
 		(fp_text user "TOP"
-			(at 0 -12.7 360)
+			(at 0 -12.7 0)
 			(layer "F.SilkS")
 			(uuid "4ba1e10f-d2de-45c2-b588-5bebab8c4b41")
 			(effects
@@ -12432,7 +12432,7 @@
 		(descr "MAY BE USED WITH SOCKET: PL31-P")
 		(tags "MAY BE USED WITH SOCKET: PL31-P")
 		(property "Reference" "N1"
-			(at 20.955 -0.889 360)
+			(at 20.955 -0.889 0)
 			(layer "F.SilkS")
 			(uuid "8f8f3089-dd92-4b5a-a0e1-cedf81f6fc26")
 			(effects
@@ -12443,7 +12443,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 0 12.7 360)
+			(at 0 12.7 0)
 			(layer "F.SilkS")
 			(uuid "029fa185-937f-4173-af05-b8cca6d95947")
 			(effects
@@ -12454,7 +12454,7 @@
 			)
 		)
 		(property "Footprint" "nixies-us:nixies-us-IN-4-DSUB"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "08600c26-3174-4a91-becc-8ffecf12c813")
@@ -12466,7 +12466,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "04f6629a-55b8-449a-9241-3294c44eddb5")
@@ -12478,7 +12478,7 @@
 			)
 		)
 		(property "Description" "IN-4: large numeric topview nixie tube"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "69d948b9-f19c-4619-8c22-6f4baa1ce38a")
@@ -12560,7 +12560,7 @@
 			(uuid "1076029f-1b28-4708-93b4-5799ff05ec36")
 		)
 		(fp_text user "TOP"
-			(at 0 -12.7 360)
+			(at 0 -12.7 0)
 			(layer "F.SilkS")
 			(uuid "96a013cb-15a8-418c-befa-c688866a82a4")
 			(effects
