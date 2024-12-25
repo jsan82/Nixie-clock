@@ -1,7 +1,9 @@
 /*
-   MIT License
 
-  Copyright (c) 2021 Felix Biego
+
+  MIT License
+
+  Copyright (c) 2021 Jakub Sanecki
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
@@ -20,10 +22,16 @@
   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
+
+
+
+  @author Jakub Sanecki
+  @version 1.0
+  @date 2024-12-25
+
 */
 
 #include <ESP32Time.h>
-
 #include <WiFiManager.h> // https://github.com/tzapu/WiFiManager
 #include "time.h"
 #include "esp_sntp.h"
@@ -39,16 +47,11 @@ uint8_t d_clk = 17;
 uint8_t o_clk = 18;
 uint8_t nixi_en = 8;
 uint8_t nixi_data = 19;
-uint8_t currentHour;
-uint8_t currentMin;
 
-uint16_t year = 2023;
-uint8_t month = 9;
-uint8_t day = 7;
-uint8_t hour = 11;
-uint8_t minute = 24;
-uint8_t second = 30;
+
 uint32_t lastMillis;
+uint16_t year = 2023;
+uint8_t month, day, hour, minute, second, currentHour, currentMin;
 
 
 
@@ -61,42 +64,34 @@ const char *time_zone = "CET-1CEST,M3.5.0,M10.5.0/3";  // TimeZone rule for Euro
 
 
 void setup() {
-    // WiFi.mode(WIFI_STA); // explicitly set mode, esp defaults to STA+AP
-    // it is a good practice to make sure your code sets wifi mode how you want it.
-
-    // put your setup code here, to run once:
-    Serial.begin(115200);
     
 
+    Serial.begin(115200);
 
-
+    // initialize the nixie tube lapmps
     pinMode(rst, OUTPUT);
     pinMode(d_clk, OUTPUT);
     pinMode(o_clk, OUTPUT);
     pinMode(nixi_en, OUTPUT);
     pinMode(nixi_data, OUTPUT);
+
+    // set the initial state of the nixie clock
     digitalWrite(rst,1);
     digitalWrite(nixi_en, 0);
+
+    // create an instance of the ESP32Time class
     struct tm timeinfo;
     currentHour = timeinfo.tm_hour;
     currentMin = timeinfo.tm_min;
+
     //WiFiManager, Local intialization. Once its business is done, there is no need to keep it around
     WiFiManager wm;
 
     
 
-    // reset settings - wipe stored credentials for testing
-    // these are stored by the esp library
-    // wm.resetSettings();
-
-    // Automatically connect using saved credentials,
-    // if connection fails, it starts an access point with the specified name ( "AutoConnectAP"),
-    // if empty will auto generate SSID, if password is blank it will be anonymous AP (wm.autoConnect())
-    // then goes into a blocking loop awaiting configuration and will return success result
-
     bool res;
     // res = wm.autoConnect(); // auto generated AP name from chipid
-     res = wm.autoConnect("AutoConnectAP"); // anonymous ap
+    res = wm.autoConnect("AutoConnectAP"); // anonymous ap
     // res = wm.autoConnect("AutoConnectAP","password"); // password protected ap
 
     if(!res) {
@@ -106,15 +101,17 @@ void setup() {
     else {
         //if you get here you have connected to the WiFi    
         Serial.println("connected...yeey :)");
+
+        // set the time zone
         configTime(gmtOffset_sec, daylightOffset_sec, ntpServer1, ntpServer2);
+
+        //seting time 
         printLocalTime();
 
     }
 
 
 }
-
-
 
 
 void printLocalTime() 
@@ -124,8 +121,8 @@ void printLocalTime()
     Serial.println("No time available (yet)");
     return;
   }
-  Serial.println(&timeinfo, "%A, %B %d %Y %H:%M:%S");
-   
+  
+  //downloading time from NTP
   hour = timeinfo.tm_hour;
   minute = timeinfo.tm_min;
   second = timeinfo.tm_sec;
@@ -133,12 +130,16 @@ void printLocalTime()
   month = timeinfo.tm_mon + 1;
   year = timeinfo.tm_year + 1900;
 
-  //rtc.setDateTime(year, month, day, hour, minute, second);
+  // set the time on the rtc
   rtc.setTime(second, minute, hour, day, month, year);  // 17th Jan 2021 15:24:30
+}
 
-  
-  
-
+void showDate()
+{
+  sendNumber(month%10);
+  sendNumber(month/10);
+  sendNumber(day%10);
+  sendNumber(day/10);
 }
 
 // Callback function (gets called when time adjusts via NTP)
@@ -148,6 +149,7 @@ void timeavailable(struct timeval *t)
   printLocalTime();
 }
 
+// Function to send data to the nixie tube
 void sendToRegister(uint8_t bit)
 {
   if (bit == 1)
@@ -168,6 +170,7 @@ void sendToRegister(uint8_t bit)
   delay(1);
 }
 
+// Decodes the number to be displayed on the nixie tube
 void sendNumber(uint8_t number)
 {
   switch(number)
@@ -268,11 +271,10 @@ void sendNumber(uint8_t number)
 
 void loop() 
 {
-    // put your main code here, to run repeatedly:   
-    //printLocalTime();
 
-
+    
     if (millis() - lastMillis > 1000) {
+        //getting time from RTC
         lastMillis = millis();
         minute = rtc.getMinute();
         hour = rtc.getHour();
@@ -280,8 +282,16 @@ void loop()
         day = rtc.getDay();
         month = rtc.getMonth();
         year = rtc.getYear();
-        if(currentHour != hour  || currentMin != minute)
+
+        if(currentHour != hour  || currentMin != minute) // check if the time has changed
           {
+            if(currentMin%5 == 0) // check if the time is a multiple of 5
+            {
+              showDate();
+              delay(5000);
+              Serial.println("showing date");
+            }
+            // send the time to the nixie tube
             sendNumber(minute%10);
             sendNumber(minute/10);
             sendNumber(hour%10);
@@ -294,7 +304,7 @@ void loop()
           }
     }
 
-   //  Serial.println(rtc.getLocalEpoch());         //  (long)    1609459200 epoch without offset
-  Serial.println(rtc.getTime("%A, %B %d %Y %H:%M:%S"));   // (String) returns time with specified format 
-  delay(1000);
+  
+  //Serial.println(rtc.getTime("%A, %B %d %Y %H:%M:%S")); // prints the time in the format "Monday, January 01 2021 00:00:00"
+  //delay(1000);
 }
