@@ -63,7 +63,8 @@ const int daylightOffset_sec = 3600;
 const char *time_zone = "CET-1CEST,M3.5.0,M10.5.0/3";  // TimeZone rule for Europe/Rome including daylight adjustment rules (optional)
 
 
-void setup() {
+void setup() 
+{
     
 
     Serial.begin(115200);
@@ -132,15 +133,9 @@ void printLocalTime()
 
   // set the time on the rtc
   rtc.setTime(second, minute, hour, day, month, year);  // 17th Jan 2021 15:24:30
+
 }
 
-void showDate()
-{
-  sendNumber(month%10);
-  sendNumber(month/10);
-  sendNumber(day%10);
-  sendNumber(day/10);
-}
 
 // Callback function (gets called when time adjusts via NTP)
 void timeavailable(struct timeval *t) 
@@ -148,6 +143,7 @@ void timeavailable(struct timeval *t)
   Serial.println("Got time adjustment from NTP!");
   printLocalTime();
 }
+
 
 // Function to send data to the nixie tube
 void sendToRegister(uint8_t bit)
@@ -159,152 +155,117 @@ void sendToRegister(uint8_t bit)
     digitalWrite(nixi_data, 0);
   }
 
-  delay(1);
   digitalWrite(d_clk, 1);
-  delay(1);
   digitalWrite(o_clk,1);
-  delay(1);
   digitalWrite(d_clk,0);
-  delay(1);
   digitalWrite(o_clk,0);
-  delay(1);
 }
+
 
 // Decodes the number to be displayed on the nixie tube
 void sendNumber(uint8_t number)
 {
+  Serial.println("Sending number: " + String(number));
   switch(number)
   {
     case 0:
-      digitalWrite(nixi_en, 1);
       sendToRegister(1);
       sendToRegister(0);
       sendToRegister(0);
       sendToRegister(1);
-      digitalWrite(nixi_en, 0);
-      Serial.println("printing 0");
       break;
     case 1:
-      digitalWrite(nixi_en, 1);
       sendToRegister(0);
       sendToRegister(0);
       sendToRegister(0);
-      sendToRegister(0);
-      digitalWrite(nixi_en, 0);
-      Serial.println("printing 1");
-      
+      sendToRegister(0);    
       break;
     case 2:
-      digitalWrite(nixi_en, 1);
       sendToRegister(1);
       sendToRegister(0);
       sendToRegister(0);
       sendToRegister(0);
-      digitalWrite(nixi_en, 0);
-      Serial.println("printing 2");
       break;
     case 3:
-      digitalWrite(nixi_en, 1);
       sendToRegister(0);
       sendToRegister(1);
       sendToRegister(0);
       sendToRegister(0);
-      digitalWrite(nixi_en, 0);
-      Serial.println("printing 3");
       break;
     case 4:
-      digitalWrite(nixi_en, 1);
       sendToRegister(1);
       sendToRegister(1);
       sendToRegister(0);
       sendToRegister(0);
-      digitalWrite(nixi_en, 0);
-      Serial.println("printing 4");
       break;
     case 5:
-      digitalWrite(nixi_en, 1);
       sendToRegister(0);
       sendToRegister(0);
       sendToRegister(1);
       sendToRegister(0);
-      digitalWrite(nixi_en, 0);
-      Serial.println("printing 5");
       break;
     case 6:
-      digitalWrite(nixi_en, 1);
       sendToRegister(1);
       sendToRegister(0);
       sendToRegister(1);
       sendToRegister(0);
-      digitalWrite(nixi_en, 0);
-      Serial.println("printing 6");
       break;
     case 7:
-      digitalWrite(nixi_en, 1);
       sendToRegister(0);
       sendToRegister(1);
       sendToRegister(1);
       sendToRegister(0);
-      digitalWrite(nixi_en, 0);
-      Serial.println("printing 7");
       break;
     case 8:
-      digitalWrite(nixi_en, 1);
       sendToRegister(1);
       sendToRegister(1);
       sendToRegister(1);
       sendToRegister(0);
-      digitalWrite(nixi_en, 0);
-      Serial.println("printing 8");
       break;
     case 9:
-      digitalWrite(nixi_en, 1);
       sendToRegister(0);
       sendToRegister(0);
       sendToRegister(0);
       sendToRegister(1);
-      digitalWrite(nixi_en, 0);
-      Serial.println("printing 9");
       break;           
   }
 }
 
+
 void loop() 
 {
 
-    
     if (millis() - lastMillis > 1000) {
         //getting time from RTC
         lastMillis = millis();
-        minute = rtc.getMinute();
-        hour = rtc.getHour();
-        second = rtc.getSecond();
-        day = rtc.getDay();
-        month = rtc.getMonth();
-        year = rtc.getYear();
+        //Serial.println(rtc.getTime("%A, %B %d %Y %H:%M:%S")); // prints the time in the format "Monday, January 01 2021 00:00:00"
+        hour = rtc.getTime("%H").toInt();
+        minute = rtc.getTime("%M").toInt();
+        day = rtc.getTime("%d").toInt();
+        month = rtc.getTime("%m").toInt();
+
 
         if(currentHour != hour  || currentMin != minute) // check if the time has changed
           {
             if(currentMin%5 == 0) // check if the time is a multiple of 5
             {
-              showDate();
+              //Serial.println("showing date");
+              sendNumber(month%10);
+              sendNumber(month/10);
+              sendNumber(day%10);
+              sendNumber(day/10);
               delay(5000);
-              Serial.println("showing date");
             }
             // send the time to the nixie tube
+            //Serial.println("new local time");
             sendNumber(minute%10);
             sendNumber(minute/10);
             sendNumber(hour%10);
             sendNumber(hour/10);
-            currentHour = rtc.getHour();
-            currentMin = rtc.getMinute();
-            Serial.println("new local time");
+            currentHour = hour;
+            currentMin = minute;
           } else {
-            Serial.println("still same time");
+            //Serial.println("still same time");
           }
     }
-
-  
-  //Serial.println(rtc.getTime("%A, %B %d %Y %H:%M:%S")); // prints the time in the format "Monday, January 01 2021 00:00:00"
-  //delay(1000);
 }
